@@ -1,4 +1,4 @@
-wo"""
+"""
 Name(s): Charlotte Yih, Aarav Leekha
 Name of Project: Escape Quest
 """
@@ -10,11 +10,11 @@ Name of Project: Escape Quest
 
 import time
 import os
-inventory=("Bag", "Flashlight", "Candy Bar", "Explosive")
+inventory=["Bag", "Flashlight", "Candy Bar", "Explosive"]
 
 def start():
   time.sleep(1)
-  print ("Escape Quest")
+  print ("Escape Quest (by Charlotte Yih and Aarav Leekha)")
   time.sleep(2)
   print ("Or: You Are A Lonely Teenager Forced To Make Many Choices, Many Of Which Result In Your Arrest And Possible Death")
   time.sleep(4)
@@ -74,14 +74,13 @@ def stay():
   time.sleep(3)
   print ("Now you get to pick between an easier room and a harder one. It's tempting to just pick the easier one, but just think of how satisfying it would be to brag to your friends about solving the harder one.")
   time.sleep(5)
-  room = input("Do you pick the easier room or the harder room? Enter 1 for the easier room and 2 for the harder room. ")
+  room = input("Do you pick the easier room or the harder room? Enter 1 for the easier room and 2 for the harder room: ")
   if room == "1":
     easy()
   elif room == "2":
     hard()
   else:
     print ("That's not a valid input.")
-
 
 def easy():
   time.sleep(1)
@@ -145,21 +144,21 @@ def hard():
   print("With you, you've brought:")
   print(inventory)
   time.sleep(4)
-  print("To use an item, enter its name when prompted. If you would like to try to use two items together, enter their names, separated by a comma.")
-  time.sleep(5)
+  print("To use an item, enter its name when prompted.")
+  time.sleep(3)
   print("Now, back to the heist: you enter the bank. The hallway you’re walking down has a room to its left and right, and you suddenly realize that you don’t know the layout of the building at all, much less where the guard will be. There are signs on both rooms, but turning on your flashlight to get a better look might alert the guard.")
   time.sleep(5)
-  hard1 = input(" Do you go to the left room, the right room, keep on walking straight ahead, or turn on your flashlight to take a look at the signs? Enter 1 to go left, 2 to go right, 3 to keep on walking, 4 to turn on your flashlight. ")
-  if hard1 == "1":
+  hard1 = input(" Do you go to the left room, the right room, keep on walking straight ahead, or turn on your flashlight to take a look at the signs? Enter 1 to go left, 2 to go right, 3 to keep on walking, 4 to turn on your flashlight: ")
+  if hard1 == ("1"):
     leftoff()
   elif hard1 == ("2"):
     rightroom()
   elif hard1 == ("3"):
     straight()
   elif hard1 == ("4"):
-      print("You turn on your flashlight. The door to your left reads: “Storage Room”. The door to your right reads: “Janitor’s Closet.”")
-  time.sleep(3)
-  hard2 = input ("Do you go to the left room, the right room, or keep on walking ahead? Enter 1 to go left, 2 to go right, 3 to keep on walking: ")
+    print("You turn on your flashlight. The door to your left reads: “Storage Room”. The door to your right reads: “Janitor’s Closet.”")
+    time.sleep(3)
+    hard2 = input ("Do you go to the left room, the right room, or keep on walking ahead? Enter 1 to go left, 2 to go right, 3 to keep on walking: ")
   if hard2 == ("1"):
     lefton()
   elif hard2 == ("2"):
@@ -170,13 +169,13 @@ def leftoff():
   print("~")
   print ("The room is very dimly lit, but you can see a little if you squint really hard.")
   time.sleep(2)
-  flashlight = input("Do you turn on your flashlight? (Enter 1 to turn on your flashlight, 2 to keep it off)")
+  flashlight = input("Do you turn on your flashlight? Enter 1 to turn on your flashlight, 2 to keep it off: ")
   if flashlight == ("1"):
     lefton()
   elif flashlight == ("2"):
-    print("You decide to keep your flashlight off.You get the sense that this is a large room.") 
+    print("You decide to keep your flashlight off. You get the sense that this is a large room.") 
     time.sleep(2)
-  leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room.")
+  leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room: ")
   if leftA == ("1"):
     leftleft()
   elif leftA == ("2"):
@@ -186,66 +185,76 @@ def leftoff():
   elif leftA == ("4"):
     leftleave()
 def leftleft():
-  leftleftA = input("Do you try to investigate the boxes further? Enter yes or no.")
-  if leftleftA == ("yes"):
+  leftleftA = input("You feel boxes. Do you try to investigate the boxes further? Enter 1 for yes or 2 for no: ")
+  if leftleftA == ("1"):
     leftboxes()
-  elif leftleftA == ("no"):
-    leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room.")
-  if leftA == ("1"):
-    leftleft()
-  elif leftA == ("2"):
-    leftright()
-  elif leftA == ("3"):
-    leftstraight()
-  elif leftA == ("4"):
-    leftleave()
+  elif leftleftA == ("2"):
+    leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room: ")
+    if leftA == ("1"):
+      leftleft()
+    elif leftA == ("2"):
+      leftright()
+    elif leftA == ("3"):
+      leftstraight()
+    elif leftA == ("4"):
+      leftleave()
+  elif leftleftA != ("1") or ("2"):
+    print("That's not a valid input.")
+    leftleftA()
 def leftboxes():
-  leftboxnum = input("Which box would you like to open? Enter 1 for box 1, 2 for box 2, etc, and 5 to investigate another part of the room")
+  leftboxnum = input("Which box would you like to open? Enter 1 for box 1, 2 for box 2, etc, and 5 to investigate another part of the room: ")
   if leftboxnum == ("1"):
     print("There’s a metal plaque, but it’s so rusted over that you can’t tell what it says.")
     time.sleep(2)
-    openinv = input("Enter 1 to open your inventory or 2 to keep looking at boxes.")
-    if openinv == ("1"):
+    openinv = input("Enter 1 to open your inventory or 2 to keep looking at boxes: ")
+    if openinv == ("2"):
+      leftboxnum()
+    elif openinv == ("1"):
       print(inventory)
-      useinv = input("Enter the lowercase name of any item to use it.")
+      useinv = input("Enter the lowercase name of any item to use it: ")
       if useinv == ("metal polish"):
-        metalpolish = input("Do you try to polish the box? Enter 1 for yes, 2 for no") 
+        metalpolish = input("Do you try to polish the box? Enter 1 for yes, 2 for no: ") 
         if metalpolish == ("1"): 
           print("You polish the plaque using the metal polish. The rust slowly disappears, and in the dim lighting of the room, you can finally read what it says: “Employee of the Month: Jim, 2007.” ")
           time.sleep(4)
           inventory.append("Metal plaque")
-          print("Item Obtained: ‘Metal plaque.’ (Enter 0 to access your inventory)")
+          print("Item Obtained: ‘Metal plaque.’")
+      elif useinv != ("metal polish"):
+        print("You don't think that will work here.")
     leftboxes()
   elif leftboxnum == ("2"):
     print("Well, you try to open it. The lid is somehow partially stuck. You’d need some sort of strong stick to get this open.")
     time.sleep(3)
-    openinv = input("Enter 1 to open your inventory or 2 to keep looking at boxes.")
-    if openinv == ("1"):
+    openinv1 = input("Enter 1 to open your inventory or 2 to keep looking at boxes: ")
+    if openinv1 == ("1"):
       print(inventory)
-      useinv = input("Enter the lowercase name of any item to use it.")
+      useinv = input("Enter the lowercase name of any item to use it: ")
       if useinv == ("mop"):
-        openmop = input("Do you try to open the box using the mop? Enter 1 for yes or 2 for no.")
+        openmop = input("Do you try to open the box using the mop? Enter 1 for yes or 2 for no: ")
+        if openmop == ("1"):
+          print("You stick the handle of the mop into the small space between the lid and the box, and get it to fully open. In the box are a bunch of guard outfits.")
+          time.sleep(4)
+        guardoutfit = input("Do you put on a guard outfit? Enter 1 for yes or 2 for no: ")
+        if guardoutfit == ("1"):
+          print("You quickly put on the guard outfit.")
+        if guardoutfit == ("2"): 
+          print("You don't put on the guard outfit.")
+          if openmop == ("2"):
+            print("You don't try to open the box.")
       elif useinv == ("candy bar"):
-        candybar = input("Do you eat the candy bar? Enter 1 for yes, 2 for no")
+        candybar = input("Do you eat the candy bar? Enter 1 for yes, 2 for no: ")
         if candybar == ("1"):
           print("You eat the candy bar. Yum!")
           inventory.remove("Candy Bar") 
         if candybar == ("2"):
           print("You put it away. Maybe later.")
-        leftboxes()
+          leftboxes()
+      elif useinv == ("explosive"):
+        print("You use the explosive. The door explodes, but so do you.")
+        time.sleep(2)
+        end2()
       else:
         print("That's not a valid input.")
-        if openmop == ("1"):
-          print("You stick the handle of the mop into the small space between the lid and the box, and get it to fully open. In the box are a bunch of guard outfits.")
-          time.sleep(4)
-        guardoutfit = input("Do you put on a guard outfit? Enter yes or no.")
-        if guardoutfit == ("yes"):
-          print("You quickly put on the guard outfit.")
-        if guardoutfit ==("no"): 
-          print("You don't put on the guard outfit.") 
-          print("Item obtained: ‘Guard outfit.’")
-          if openmop ==("2"):
-            print("You don't try to open the box.")
       leftboxes()
   elif leftboxnum == ("3"):
     print("Nothing.")
@@ -260,42 +269,50 @@ def leftright():
 def leftstraight():
   print("Moving slowly across the floor, you bump into what seems to be a cardboard box. You bend down, waving your arms around, and feel that there are more large boxes all in a pile. Judging by the ease in which you can push them, they all seem to be empty.")
   time.sleep(7)
+  cardboardboxesnum()
 def cardboardboxesnum():
   cardboardboxes = input("You feel 5 boxes. Which box would you like to open? Enter 1 for box 1, 2 for box 2, etc, and 6 to investigate another part of the room: ")
   if cardboardboxes == ("6"): 
-    leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room.")
-  if leftA == ("1"):
-    leftleft()
-  elif leftA == ("2"):
-    leftright()
-  elif leftA == ("3"):
-    leftstraight()
-  elif leftA == ("4"):
-    leftleave()
+    leftA = input("Do you go left, right, walk straight, or exit the room? Enter 1 to go left, 2 to go right, 3 to go straight, and 4 to exit the room: ")
+    if leftA == ("1"):
+      leftleft()
+    elif leftA == ("2"):
+      leftright()
+    elif leftA == ("3"):
+      leftstraight()
+    elif leftA == ("4"):
+      leftleave()
   if cardboardboxes == ("1"):
     print("Nothing, not even dust.")
+    time.sleep(1)
     cardboardboxesnum()
   if cardboardboxes == ("2"):
     print("There's a spider—you close the box as quickly as you can.")
+    time.sleep(1)
     cardboardboxesnum()
   if cardboardboxes == ("3"):
-    print("There are two photographs in there. The other depicts…8 cats? It’s captioned: “My cats! Meowmeow, Penelope, Gucci, Boss, Ophelia, Willow, Leo, and Clover!” All of the cats are wearing sunglasses.")
+    print("There's a photograph in there. It depicts…8 cats? It’s captioned: “My cats! Meowmeow, Penelope, Gucci, Boss, Ophelia, Willow, Leo, and Clover!” All of the cats are wearing sunglasses.")
+    inventory.append("Photograph")
     time.sleep(8)
     print("Item Obtained: Photograph.")
-    inventory.append("Photograph")
+    time.sleep(1)
     cardboardboxesnum()
   if cardboardboxes == ("4"):
     print("A large amount of dust billows up—ACHOO!")
+    time.sleep(1)
     cardboardboxesnum()  
   if cardboardboxes == ("5"):
     print("Nothing, not even dust.")
-    cardboardboxesnum(h)
+    time.sleep(1)
+    cardboardboxesnum()
 
 def lefton():
   print ("You slowly move your flashlight around the room, trying to get a better sense of your surroundings. To your left, several large, plastic boxes—unsurprising, since this is a storage room. In front of you, cardboard boxes, though those seem to be empty. And to your right—")
   time.sleep(7)
-  print ("You’ve shone your flashlight directly into the face of the guard, who blinks sleepily at you. Though they seem to have just been snoozing on a chair, they’re now fully awake. You hurriedly turn off the flashlight, but it’s too late—the guard yells, and the lights in the room suddenly turn on. The guard tackles you to the floor.")
+  print ("You’ve shone your flashlight directly into the face of the guard, who blinks sleepily at you. Though they seem to have just been snoozing on a chair, they’re now fully awake. You hurriedly turn off the flashlight, but it’s too late—the guard yells, and the lights in the room suddenly turn on.")
   time.sleep(8)
+  print("The guard tackles you to the floor.")
+  time.sleep(1)
   end2()
 
 def leftleave():
@@ -310,21 +327,32 @@ def leftleave():
 def rightroom():
     print("It’s locked. Darn it. There’s a keyhole, though.")
     time.sleep(1)
-    unlock = input("Do you try to unlock the door? (Enter 1 to try to unlock the door, 2 to not)")
+    unlock = input("Do you try to unlock the door? Enter 1 to try to unlock the door, 2 to not: ")
     if unlock == ("1"):
       print (inventory)
-      usekey = input("Enter the lowercase name of the item you'd like to use to unlock the door: ")
+      usekey = input("Enter the lowercase name of the item you'd like to use to unlock the door, or 2 to go back: ")
+      if usekey == ("2"):
+        print("You don't unlock the door.")
+        rightleave = input("Do you go to the left room or continue down the hallway? Enter 1 to go left or 2 to continue down the hallway: ")
+        if rightleave == ("1"):
+          leftoff()
+        elif rightleave == ("2"):
+          straight()
       if usekey == ("gold key"):
         print ("The door unlocks!")
         time.sleep(4)
-        flashlightright = input("Do you turn on your flashlight? (Enter 1 to turn on your flashlight, 2 to keep it off).")
+        flashlightright = input("Do you turn on your flashlight? Enter 1 to turn on your flashlight, 2 to keep it off: ")
         if flashlightright == ("1"):
           righton()
         elif flashlightright == ("2"):
           rightoff()
-      elif usekey != ("gold key"):
-          print ("You don't think that would work here.")
-          rightroom()
+      elif usekey == ("explosive"):
+        print("You use the explosive. The door explodes, but so do you.")
+        time.sleep(2)
+        end2()
+      elif usekey != ("gold key") or ("explosive"):
+        print("You don't think that would work here.")
+        rightroom()
     elif unlock == ("2"):
       print("You don't unlock the door.")
       rightleave = input("Do you go to the left room or continue down the hallway? Enter 1 to go left or 2 to continue down the hallway: ")
@@ -335,18 +363,18 @@ def rightroom():
   
 def rightoff():
   print ("You can’t see anything. ")
-  rightofflight = input("Do you turn on your flashlight? (Enter 1 to turn on your flashlight, 2 to keep it off)")
+  rightofflight = input("Do you turn on your flashlight? Enter 1 to turn on your flashlight, 2 to keep it off: ")
   if rightofflight == ("1"):
     righton()
   elif rightofflight == ("2"):
     print (" You blindly fumble your way around the room into a closet. Nearly tripping over what’s probably a mop, you spread out your arms to catch yourself. Your hand closes around something small and metal on the shelf you’ve caught yourself on—a key. You tuck it in your pocket.")
     time.sleep(8)
     inventory.append("Small Key")
-  shelves = input("Do you investigate the shelves further, or continue feeling your way into the room? (Enter 1 to investigate the shelves, 2 to continue into the room)")
+  shelves = input("Do you investigate the shelves further, or continue feeling your way into the room? Enter 1 to investigate the shelves, 2 to continue into the room: ")
   if shelves == ("1"): 
     print ("You carefully move your hand along the shelves. There are bottles of what must be cleaning products, but you can’t read their labels in the dark.") 
     time.sleep(4)
-    closet = input("Do you come out of the closet or go deeper in? (Enter 1 to come out of the closet, 2 to continue exploring: ")
+    closet = input("Do you come out of the closet or go deeper in? Enter 1 to come out of the closet, 2 to continue exploring: ")
     if closet == ("1"):
       print("Congratulations!") 
       rightoffleave = input("Do you go to the left room or continue down the hallway? Enter 1 to go left or 2 to continue down the hallway: ")
@@ -381,7 +409,7 @@ def rightoff():
 def righton(): 
   print("It’s what you’d expect of a janitor's closet. Not very big, and filled with cleaning supplies. You look around to see if you can find anything useful. There’s one of those janitor carts, next to a bunch of shelves on the left wall. There’s a vacuum in the back, along with a trash can. And there’s a long mop, resting against the right wall.")  
   time.sleep(9)
-  explore = input("Do you investigate the janitor’s cart, the shelves, the vacuum, the trash can, the mop, or exit the room? (Enter 1 to investigate the janitor’s cart, 2 for the shelves, 3 for the vacuum, 4 for the trash can, 5 for the mop, 6 to exit): ")
+  explore = input("Do you investigate the janitor’s cart, the shelves, the vacuum, the trash can, the mop, or exit the room? Enter 1 to investigate the janitor’s cart, 2 for the shelves, 3 for the vacuum, 4 for the trash can, 5 for the mop, 6 to exit: ")
   if explore == ("1"):
     print("There are a few bottles of cleaning solutions on the cart, but they’re all mostly empty, so it wouldn’t do you any good to take them. There’s also a bucket. A label on it reads, “Property of Stanley.” Strangely, the bucket gives you an odd sense of comfort.You bend down, trying to see if the cart has anything else, and notice a binder sitting on the bottom of the cart. It’s filled with datasheets about cleaning products, but in the very back, there's a slip of paper with sketches of stylized animals on it. There’s an elephant, a camel, a lizard, and a bird, labeled 1-4 respectively. You pick it up.") 
     time.sleep(12)
@@ -389,7 +417,7 @@ def righton():
   elif explore == ("2"):
     print ("There are many bottles of cleaning products on the shelves—disinfectants, floor cleaning solution, glass cleaning solution, metal polish, toilet bowl cleaner, etc. You suppose you could bring one of them with you, but you can’t think of a use for anything now.")
     time.sleep(7)
-    take = input("Do you bring one of the cleaning products with you? You only have room for one, and you can always switch them. (Enter 1 for the disinfectant, 2 for the floor cleaning solution, 3 for the glass cleaning solution, 4 for the metal polish, 5 for the toilet bowl cleaner, 6 to not get anything): ")
+    take = input("Do you bring one of the cleaning products with you? You only have room for one, and you can always switch them. Enter 1 for the disinfectant, 2 for the floor cleaning solution, 3 for the glass cleaning solution, 4 for the metal polish, 5 for the toilet bowl cleaner, 6 to not get anything: ")
     if take == ("1"):
       inventory.append("Disinfectant")
     elif take == ("2"):
@@ -404,7 +432,7 @@ def righton():
   if explore == ("3"):
     print("It’s a vacuum. Old, and incredibly dusty, which is ironic.")
     time.sleep(2)
-    vacuumon = input("Do you turn it on? (Enter 1 to turn it on, 2 to keep it off): ")
+    vacuumon = input("Do you turn it on? Enter 1 to turn it on, 2 to keep it off: ")
     if vacuumon == ("1"):
       print ("You turn the vacuum on. The noise is incredibly loud, but before you have a chance to turn it off, the guard comes rushing into the room, and says: “You’re not supposed to be here!”")
       time.sleep(3)
@@ -412,7 +440,16 @@ def righton():
     elif vacuumon == ("2"):
       print ("You don't turn it on. Smart")
   elif explore == ("4"):
-    print ("You peer into the trash can, and—is that a rat?")
+    print ("You peer into the trash can, and—is that a rat? The rat is sitting on top of something you can’t quite see clearly. Perhaps if you could somehow lure the rat away from the object with something in your inventory…")
+    feedrat = input("Do you try to feed the rat with the candy bar? Enter 1 to feed the rat, 2 to put it away: ")
+    if feedrat == ("1"): 
+      print("You unwrap the candy bar and drop it in the trash can, next to the rat. The rat eats it. The rat, Gerald, is now your best friend. He wouldn’t ditch you to go bowling.")  
+      time.sleep(3)
+      print("Gerald then climbs to the top of the trash can, with a lock pick in his teeth, handing it to you.")
+      inventory.append("Basic lock pick")
+    if feedrat == ("2"):
+      print("You don't feed the rat.")
+    explore()
   elif explore == ("5"):
     print ("Is a long, sturdy mop. It might be a hindrance to carry around.")
     time.sleep(1)
@@ -439,7 +476,7 @@ def straight():
     time.sleep(5)
     end2()
 def explore2():
-  explore2 = input("Enter 1 to investigate the filing cabinets, 2 to enter the restroom, 3 to investigate the desk, 4 to inspect the plant, 5 to look at the vault, and 6 to go back up the stairs.")
+  explore2 = input("Enter 1 to investigate the filing cabinets, 2 to enter the restroom, 3 to investigate the desk, 4 to inspect the plant, 5 to look at the vault, and 6 to go back up the stairs: ")
   if explore2 == ("1"):
     cabinets()
   elif explore2 == ("2"):
@@ -451,15 +488,17 @@ def explore2():
   elif explore2 == ("5"):
     vault()
   elif explore2 == ("6"):
-    back = input(" Do you go to the left room, the right room, keep on walking straight ahead, or turn on your flashlight to take a look at the signs? Enter 1 to go left, 2 to go right, 3 to keep on walking, 4 to turn on your flashlight. ")
-  if back == "1":
+    back = input(" Do you go to the left room, the right room, or keep on walking straight ahead? Enter 1 to go left, 2 to go right, 3 to keep on walking: ")
+  if back == ("1"):
     leftoff()
   elif back == ("2"):
     rightroom()
+  elif back == ("3"):
+    straight()
 def vault():
   print("It’s a dual lock—there’s both a keypad and large combination lock. Ew. You’re tempted to just use the explosive you brought.")
   time.sleep(3)
-  vault1 = input(" Do you try to unlock the vault, use the explosive, or continue searching the room? (Enter 1 to try to unlock the vault, 2 to use the explosive, 3 to continue searching)")
+  vault1 = input(" Do you try to unlock the vault, use the explosive, or continue searching the room? Enter 1 to try to unlock the vault, 2 to use the explosive, 3 to continue searching: ")
   if vault1 == ("1"):
     vaultunlock()
   elif vault1 == ("2"):
@@ -489,13 +528,13 @@ def vaultunlock():
     if useinv == ("paper slip"):
       print(" It’s filled with datasheets about cleaning products, but in the very back, there's a slip of paper with sketches of stylized animals on it. There’s an elephant, a camel, a lizard, and a bird, labeled 1-4 respectively.")
       time.sleep(5)
-  comblock = input("Which numbers do you spin the lock to? (Enter a 4 digit number using the number 1-4, no repeats)")
+  comblock = input("Which numbers do you spin the lock to? Enter a 4 digit number using the number 1-4, no repeats: ")
   while comblock != ("4132"):
-    comblock = input("Which numbers do you spin the lock to? (Enter a 4 digit number using the number 1-4, no repeats)")
+    comblock = input("Which numbers do you spin the lock to? Enter a 4 digit number using the number 1-4, no repeats: ")
   if comblock == ("4132"):
     print("The door to the vault swings open. You open your mouth in disbelief—you didn’t think you’d actually complete this! You hurriedly stuff the bag you have with as much money as you can, then set off. As you’re running down the hallway towards the exit, you spot Gerald walking towards you. They haven’t seemed to notice you yet, but they’re about to. If you go back down the stairs, the chances they’ll see you are high.")
     time.sleep(7)
-    escape = input("Quick, do you hide in the left or right room? (Enter 1 for the left room, 2 for the right room)")
+    escape = input("Quick, do you hide in the left or right room? Enter 1 for the left room, 2 for the right room: ")
     if escape == ("1"):
       print("You hide in the left room. You hear Gerald walking down the hallway, entering the left room—shoot. The guard spots you immediately.") 
       time.sleep(3)
@@ -512,20 +551,22 @@ def plant():
 def desk():
   print("You investigate the desk—it’s beautiful, being made of mahogany. On the surface of the desk, there are stacks and stacks of boring paperwork. There’s too much for any of it to be of use to you. However, on top of one of the stacks is a pink, heart-shaped sticky note. It reads, “Hey <3! Won’t be home tonight, so remember to feed the cats later! Love, V.” You check out the rest of the desk. There’s a single drawer on it. You try opening it, but it seems to be locked. Upon closer inspection, there are small buttons on the drawer, numbered 1-10.")
   time.sleep(10)
-  button = input("Which button do you press? (Enter a number between 1 & 10: )")
+  button = input("Which button do you press? Enter a number between 1 & 10: ")
   if button == ("8"):
     print("The drawer opens. Inside, a little crocheted cat, along with a gold key. You’d feel bad for taking the cat, so you only take the key.")
     time.sleep(3)
     inventory.append("Gold Key")
+  elif button != ("8"):
+    print("It doesn't work.")   
   explore2()
 
 def restroom():
-  print("Though you don’t feel like using it, you enter the restroom.Looking around, you spot a giant mirror, some sinks, and five stalls.")
+  print("Though you don’t feel like using it, you enter the restroom. Looking around, you spot a giant mirror, some sinks, and five stalls.")
   time.sleep(3)
   explore3()
 
 def explore3():
-  restroom1 = input("Do you investigate the mirror, the sinks, the stalls, or leave? (Enter 1 for the mirror, 2 for the sinks, 3 for the stalls, and 4 to leave)")
+  restroom1 = input("Do you investigate the mirror, the sinks, the stalls, or leave? Enter 1 for the mirror, 2 for the sinks, 3 for the stalls, and 4 to leave: ")
   if restroom1 == ("1"):
     print ("You investigate the mirror, fixing up your hair in the process. The mirror’s a little grimy, but that’s all.")
     time.sleep(3)
@@ -571,7 +612,7 @@ def cabinets():
 def end1():
   time.sleep(2)
   print("Hope you had fun!") 
-  restart = input("To restart this game, enter 'restart': ")
+  restart = input("To restart this game, enter 'restart':")
   if restart == "restart":
     os.system('clear')
     start()
@@ -579,7 +620,7 @@ def end1():
 def end2():
   time.sleep(2)
   print("Hope you had fun!")
-  restart = input ("To restart this room, enter 'room'. To restart the game, enter 'restart'")
+  restart = input ("To restart this room, enter 'room'. To restart the game, enter 'restart': ")
   if restart == "room":
     os.system('clear')
     hard()
